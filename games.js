@@ -1,27 +1,12 @@
-class PlayerTwoOSix {
-    oGameStateJSON = {};
-    constructor() {
-        // Initialize the gamestateJSON object with the player's name
-        // {"key":"status","timestamp":1730000000000,"value":{"ready":true}}
-        this.oGameStateJSON = {                
-            "game": "Player Two O'Six",
-            "timestamp": Date.now(),
-            "value": {
-                "ready": true
-            }
-        };
-    }
-    getName() {
-        return this.oGameStateJSON.game;
-    }
-    GameStateToJSON() {
-        return JSON.stringify(this.oGameStateJSON);
-    }
-    GameStateFromJSON(jsonString) {
-        try {
-            this.oGameStateJSON = JSON.parse(jsonString);
-        } catch (error) {
-            console.error("Invalid JSON string:", error);
-        }
-    }
-}
+/* games loader: includes class files (one per file) synchronously so the global API remains unchanged */
+(function(){
+    var base = 'js/';
+    var files = [
+        'games-class.js',
+        'players-class.js'
+    ];
+    files.forEach(function(f){
+        // Use document.write to ensure scripts are loaded and executed synchronously
+        document.write('<scr' + 'ipt type="text/javascript" src="' + base + f + '"></scr' + 'ipt>');
+    });
+})();

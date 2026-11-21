@@ -21,9 +21,12 @@
     </script>
     <input type="text" id="gamestateInput" placeholder="Enter gamestate JSON" onFocus="this.value=myGame.getName()" onblur="this.value=this.value.trim()">
     <input type="button" value="G2J" onclick="getElementById('json-data-input').textContent = myGame.GameStateToJSON()">
+    <input type="button" value="SwCM" onclick="getElementById('json-data-input').textContent = myGame.sendWithConMan()">
     <input type="button" value="J2G" onclick="myGame.GameStateFromJSON(document.getElementById('json-data-output').value)">
     <input id="json-data-output" class="json-data-output"></input>
-    <textarea id="json-data-input" rows="5" maxlength="20000" placeholder='{"key":"status","timestamp":1730000000000,"value":{"ready":true}}' required></textarea>                        
+    <textarea id="json-data-input" rows="5" maxlength="20000" placeholder='{"key":"status","timestamp":1730000000000,"value":{"ready":true}}' required></textarea>
+    <input type="time" id="gameStateTime" onFocus="this.value=myGame.getGameTime(true)" onblur="this.value=this.value.trim()">
+    <input type="button" value="Add Player" onclick="myGame.addPlayer(prompt('Enter player name:'))">
 </body>
 <footer>
     <p>&copy; 2024 Game Mod. All rights reserved.</p>
